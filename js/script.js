@@ -5,19 +5,35 @@ const input = document.getElementById("input");
 
 let LIST = []
 
+const CHECK = "fa-check-circle";
+const UNCHECK = "fa-circle-thin";
+const LINE_THROUGHT = "lineThrough";
 
 
-function addToDo(){
+function addToDo(toDo, id, done,trash){
+
+    if(trash){
+        return;
+    }
+    
+    const DONE = done? CHECK : UNCHECK;
+    const LINE = done? LINE_THROUGHT : "";
+
+
     const text = `<li class="item>"
-                    <i class="co fa fa-circle-thin" job="complete"></i>
-                    <p class="text">${toDo}</p>
-                    <i class="de fa fa-trash-o" job="delete"></i>
+                    <i class="fa ${DONE} complete" job="complete" id="${id}"></i>
+                    <p class="text ${LINE}">${toDo}</p>
+                    <i class="de fa fa-trash-o" job="delete" id="${id}"></i>
                 </li>`;
     
     const position = "beforeend";
     
     list.insertAdjacentElement(position, text);
 
+}
+
+function completeToDo(){
+    //1818
 }
 
 document.addEventListener("keyup", function(event){
